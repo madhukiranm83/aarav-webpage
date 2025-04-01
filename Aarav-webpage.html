@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aarav's Awesome Space</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e6f3ff 50%, #d3e9ff 100%);
+            color: #333;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1000" viewBox="0 0 1500 1000"><rect width="1500" height="1000" fill="transparent"/><path d="M150,750 C180,700 250,680 350,700 C390,710 430,730 470,750 L470,850 L150,850 Z" fill="%23004D40" opacity="0.2"/><path d="M180,710 C200,695 240,690 270,700" fill="none" stroke="%23004D40" stroke-width="3" opacity="0.3"/><path d="M300,700 C330,690 360,690 390,700" fill="none" stroke="%23004D40" stroke-width="3" opacity="0.3"/><circle cx="240" cy="850" r="25" fill="%23333" opacity="0.3"/><circle cx="240" cy="850" r="15" fill="%23666" opacity="0.3"/><circle cx="380" cy="850" r="25" fill="%23333" opacity="0.3"/><circle cx="380" cy="850" r="15" fill="%23666" opacity="0.3"/><ellipse cx="220" cy="720" rx="15" ry="10" fill="%23222" opacity="0.3"/><ellipse cx="280" cy="720" rx="15" ry="10" fill="%23222" opacity="0.3"/><path d="M180,750 C200,740 240,740 260,747" fill="none" stroke="%23CCCCCC" stroke-width="1.5" opacity="0.5"/><path d="M300,747 C320,740 350,740 370,747" fill="none" stroke="%23CCCCCC" stroke-width="1.5" opacity="0.5"/><path d="M800,650 C830,600 900,580 1000,600 C1040,610 1080,630 1120,650 L1120,750 L800,750 Z" fill="%230A214C" opacity="0.2"/><path d="M830,610 C850,595 890,590 920,600" fill="none" stroke="%230A214C" stroke-width="3" opacity="0.3"/><path d="M950,600 C980,590 1010,590 1040,600" fill="none" stroke="%230A214C" stroke-width="3" opacity="0.3"/><circle cx="890" cy="750" r="25" fill="%23333" opacity="0.3"/><circle cx="890" cy="750" r="15" fill="%23666" opacity="0.3"/><circle cx="1030" cy="750" r="25" fill="%23333" opacity="0.3"/><circle cx="1030" cy="750" r="15" fill="%23666" opacity="0.3"/><ellipse cx="870" cy="620" rx="15" ry="10" fill="%23222" opacity="0.3"/><ellipse cx="930" cy="620" rx="15" ry="10" fill="%23222" opacity="0.3"/><path d="M830,650 C850,640 890,640 910,647" fill="none" stroke="%23CCCCCC" stroke-width="1.5" opacity="0.5"/><path d="M950,647 C970,640 1000,640 1020,647" fill="none" stroke="%23CCCCCC" stroke-width="1.5" opacity="0.5"/><path d="M1200,450 C1230,400 1300,380 1400,400 C1440,410 1480,430 1520,450 L1520,550 L1200,550 Z" fill="%232E5090" opacity="0.2"/><path d="M1230,410 C1250,395 1290,390 1320,400" fill="none" stroke="%232E5090" stroke-width="3" opacity="0.3"/><path d="M1350,400 C1380,390 1410,390 1440,400" fill="none" stroke="%232E5090" stroke-width="3" opacity="0.3"/><circle cx="1290" cy="550" r="25" fill="%23333" opacity="0.3"/><circle cx="1290" cy="550" r="15" fill="%23666" opacity="0.3"/><circle cx="1430" cy="550" r="25" fill="%23333" opacity="0.3"/><circle cx="1430" cy="550" r="15" fill="%23666" opacity="0.3"/><ellipse cx="1270" cy="420" rx="15" ry="10" fill="%23222" opacity="0.3"/><ellipse cx="1330" cy="420" rx="15" ry="10" fill="%23222" opacity="0.3"/><path d="M1230,450 C1250,440 1290,440 1310,447" fill="none" stroke="%23CCCCCC" stroke-width="1.5" opacity="0.5"/><path d="M1350,447 C1370,440 1400,440 1420,447" fill="none" stroke="%23CCCCCC" stroke-width="1.5" opacity="0.5"/><path d="M400,350 C430,300 500,280 600,300 C640,310 680,330 720,350 L720,450 L400,450 Z" fill="%230A3263" opacity="0.2"/><path d="M430,310 C450,295 490,290 520,300" fill="none" stroke="%230A3263" stroke-width="3" opacity="0.3"/><path d="M550,300 C580,290 610,290 640,300" fill="none" stroke="%230A3263" stroke-width="3" opacity="0.3"/><circle cx="490" cy="450" r="25" fill="%23333" opacity="0.3"/><circle cx="490" cy="450" r="15" fill="%23666" opacity="0.3"/><circle cx="630" cy="450" r="25" fill="%23333" opacity="0.3"/><circle cx="630" cy="450" r="15" fill="%23666" opacity="0.3"/><ellipse cx="470" cy="320" rx="15" ry="10" fill="%23222" opacity="0.3"/><ellipse cx="530" cy="320" rx="15" ry="10" fill="%23222" opacity="0.3"/><path d="M430,350 C450,340 490,340 510,347" fill="none" stroke="%23CCCCCC" stroke-width="1.5" opacity="0.5"/><path d="M550,347 C570,340 600,340 620,347" fill="none" stroke="%23CCCCCC" stroke-width="1.5" opacity="0.5"/><path d="M0,850 L1500,850" stroke="%23999999" stroke-width="5" stroke-dasharray="20,20" opacity="0.2"/><path d="M0,650 L1500,650" stroke="%23999999" stroke-width="5" stroke-dasharray="20,20" opacity="0.2"/><path d="M0,450 L1500,450" stroke="%23999999" stroke-width="5" stroke-dasharray="20,20" opacity="0.2"/><path d="M0,250 L1500,250" stroke="%23999999" stroke-width="5" stroke-dasharray="20,20" opacity="0.2"/><path d="M300,230 C320,200 350,180 400,180 C450,180 500,200 550,230 L550,330 L300,330 Z" fill="%23183059" opacity="0.25"/><path d="M325,200 C340,190 370,185 390,195" fill="none" stroke="%23183059" stroke-width="3" opacity="0.3"/><path d="M410,195 C430,185 450,185 470,195" fill="none" stroke="%23183059" stroke-width="3" opacity="0.3"/><circle cx="375" cy="330" r="20" fill="%23333" opacity="0.3"/><circle cx="375" cy="330" r="10" fill="%23666" opacity="0.3"/><circle cx="475" cy="330" r="20" fill="%23333" opacity="0.3"/><circle cx="475" cy="330" r="10" fill="%23666" opacity="0.3"/><ellipse cx="350" cy="210" rx="12" ry="8" fill="%23222" opacity="0.3"/><ellipse cx="400" cy="210" rx="12" ry="8" fill="%23222" opacity="0.3"/><path d="M330,230 C345,220 365,220 380,225" fill="none" stroke="%23CCCCCC" stroke-width="1.5" opacity="0.5"/><path d="M410,225 C425,220 445,220 460,225" fill="none" stroke="%23CCCCCC" stroke-width="1.5" opacity="0.5"/><path d="M900,130 C920,100 950,80 1000,80 C1050,80 1100,100 1150,130 L1150,230 L900,230 Z" fill="%23183059" opacity="0.25"/><path d="M925,100 C940,90 970,85 990,95" fill="none" stroke="%23183059" stroke-width="3" opacity="0.3"/><path d="M1010,95 C1030,85 1050,85 1070,95" fill="none" stroke="%23183059" stroke-width="3" opacity="0.3"/><circle cx="975" cy="230" r="20" fill="%23333" opacity="0.3"/><circle cx="975" cy="230" r="10" fill="%23666" opacity="0.3"/><circle cx="1075" cy="230" r="20" fill="%23333" opacity="0.3"/><circle cx="1075" cy="230" r="10" fill="%23666" opacity="0.3"/><ellipse cx="950" cy="110" rx="12" ry="8" fill="%23222" opacity="0.3"/><ellipse cx="1000" cy="110" rx="12" ry="8" fill="%23222" opacity="0.3"/><path d="M930,130 C945,120 965,120 980,125" fill="none" stroke="%23CCCCCC" stroke-width="1.5" opacity="0.5"/><path d="M1010,125 C1025,120 1045,120 1060,125" fill="none" stroke="%23CCCCCC" stroke-width="1.5" opacity="0.5"/></svg>');
+            background-repeat: repeat-y;
+            background-size: 100% auto;
+            z-index: -1;
+            opacity: 0.25;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0077b6, #00b4d8, #48cae4);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #000000, #333333, #00b4d8, #0077b6, #023e8a);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .site-title {
+            font-size: 2.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            background: linear-gradient(to right, #fff, #afe1fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        nav ul li a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+            transition: all 0.4s;
+            z-index: -1;
+            transform: skewX(-15deg);
+        }
+        
+        nav ul li a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        nav ul li a:hover::before {
+            left: 100%;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(240,249,255,0.8) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600"><path d="M900,350 C950,300 1020,285 1080,295 C1120,300 1160,320 1200,350 L1200,450 L800,450 Z" fill="%231a3c6e" opacity="0.2"/><path d="M900,325 C930,305 980,295 1020,305 C1060,315 1080,325 1100,335" fill="none" stroke="%231a3c6e" stroke-width="3.5" opacity="0.3"/><ellipse cx="950" cy="330" rx="20" ry="12" fill="%23111" opacity="0.3"/><ellipse cx="1050" cy="330" rx="20" ry="12" fill="%23111" opacity="0.3"/><circle cx="900" cy="450" r="30" fill="%23333" opacity="0.3"/><circle cx="900" cy="450" r="18" fill="%23666" opacity="0.3"/><circle cx="1040" cy="450" r="30" fill="%23333" opacity="0.3"/><circle cx="1040" cy="450" r="18" fill="%23666" opacity="0.3"/><path d="M200,400 C250,350 320,335 380,345 C420,350 460,370 500,400 L500,500 L100,500 Z" fill="%23104e8b" opacity="0.2"/><path d="M200,375 C230,355 280,345 320,355 C360,365 380,375 400,385" fill="none" stroke="%23104e8b" stroke-width="3.5" opacity="0.3"/><ellipse cx="250" cy="380" rx="20" ry="12" fill="%23111" opacity="0.3"/><ellipse cx="350" cy="380" rx="20" ry="12" fill="%23111" opacity="0.3"/><circle cx="200" cy="500" r="30" fill="%23333" opacity="0.3"/><circle cx="200" cy="500" r="18" fill="%23666" opacity="0.3"/><circle cx="340" cy="500" r="30" fill="%23333" opacity="0.3"/><circle cx="340" cy="500" r="18" fill="%23666" opacity="0.3"/><path d="M500,250 C550,200 620,185 680,195 C720,200 760,220 800,250 L800,350 L400,350 Z" fill="%2300304e" opacity="0.2"/><path d="M500,225 C530,205 580,195 620,205 C660,215 680,225 700,235" fill="none" stroke="%2300304e" stroke-width="3.5" opacity="0.3"/><ellipse cx="550" cy="230" rx="20" ry="12" fill="%23111" opacity="0.3"/><ellipse cx="650" cy="230" rx="20" ry="12" fill="%23111" opacity="0.3"/><circle cx="500" cy="350" r="30" fill="%23333" opacity="0.3"/><circle cx="500" cy="350" r="18" fill="%23666" opacity="0.3"/><circle cx="640" cy="350" r="30" fill="%23333" opacity="0.3"/><circle cx="640" cy="350" r="18" fill="%23666" opacity="0.3"/><path d="M0,350 L1200,350" stroke="%23fff" stroke-width="3" stroke-dasharray="30,30" opacity="0.15"/><path d="M0,450 L1200,450" stroke="%23fff" stroke-width="3" stroke-dasharray="30,30" opacity="0.15"/><path d="M0,250 L1200,250" stroke="%23fff" stroke-width="3" stroke-dasharray="30,30" opacity="0.15"/><text x="1000" y="320" font-family="Arial" font-size="18" fill="%2300304e" opacity="0.3">ASTON MARTIN</text><text x="300" y="370" font-family="Arial" font-size="18" fill="%23104e8b" opacity="0.3">ASTON MARTIN</text><text x="600" y="220" font-family="Arial" font-size="18" fill="%231a3c6e" opacity="0.3">ASTON MARTIN</text></svg>');
+            z-index: -1;
+            opacity: 0.25;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        
+        .hero::after {
+            content: "🏎️";
+            position: absolute;
+            top: 20px;
+            right: 10%;
+            font-size: 3rem;
+            animation: race 8s linear infinite;
+        }
+        
+        @keyframes race {
+            0% {
+                transform: translateX(100%) rotate(0deg);
+            }
+            100% {
+                transform: translateX(-600%) rotate(0deg);
+            }
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #3a8dff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #0077b6, #00b4d8);
+            color: white;
+            box-shadow: 0 8px 15px rgba(0, 119, 182, 0.4);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(45deg, #48cae4, #90e0ef);
+            color: white;
+            box-shadow: 0 8px 15px rgba(72, 202, 228, 0.4);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover::after {
+            transform: translateX(0);
+        }
+        
+        .content-section {
+            padding: 50px 0;
+        }
+        
+        .section-heading {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            color: #3a8dff;
+        }
+        
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .photo-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            background-color: white;
+            transition: all 0.4s;
+            position: relative;
+            border: 4px solid white;
+        }
+        
+        .photo-item:hover {
+            transform: translateY(-8px) rotate(2deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .photo-item:nth-child(even):hover {
+            transform: translateY(-8px) rotate(-2deg);
+        }
+        
+        .photo-item::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            right: -4px;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, transparent 50%, #0077b6 50%);
+            border-radius: 0 0 12px 0;
+            transition: all 0.3s;
+        }
+        
+        .photo-item:hover::after {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .photo-placeholder {
+            height: 180px;
+            background: linear-gradient(45deg, #48cae4, #0077b6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .photo-placeholder::before {
+            content: "";
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: linear-gradient(transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg) translateX(-50%) translateY(-50%);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% {
+                top: -100%;
+                left: -100%;
+            }
+            100% {
+                top: 100%;
+                left: 100%;
+            }
+        }
+        
+        .photo-info {
+            padding: 15px;
+        }
+        
+        .photo-info h3 {
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .photo-info p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .interests-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .interest-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .interest-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            z-index: 2;
+        }
+        
+        .interest-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.3) 100%);
+            z-index: -1;
+        }
+        
+        .interest-card:nth-child(1)::before {
+            background-color: #0077b6;
+        }
+        
+        .interest-card:nth-child(2)::before {
+            background-color: #00b4d8;
+        }
+        
+        .interest-card:nth-child(3)::before {
+            background-color: #48cae4;
+        }
+        
+        .interest-card:nth-child(4)::before {
+            background-color: #90e0ef;
+        }
+        
+        .interest-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .interest-card:nth-child(1):hover {
+            background: linear-gradient(135deg, white 0%, rgba(0,119,182,0.1) 100%);
+        }
+        
+        .interest-card:nth-child(2):hover {
+            background: linear-gradient(135deg, white 0%, rgba(0,180,216,0.1) 100%);
+        }
+        
+        .interest-card:nth-child(3):hover {
+            background: linear-gradient(135deg, white 0%, rgba(72,202,228,0.1) 100%);
+        }
+        
+        .interest-card:nth-child(4):hover {
+            background: linear-gradient(135deg, white 0%, rgba(144,224,239,0.1) 100%);
+        }
+        
+        .interest-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .interest-card p {
+            color: #555;
+        }
+        
+        .upload-section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .upload-section h3 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 1.8rem;
+        }
+        
+        .file-upload {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #3a8dff;
+            border-radius: 8px;
+            background-color: #f0f9ff;
+            padding: 40px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .file-upload:hover {
+            background-color: #e0edff;
+        }
+        
+        .file-upload p {
+            margin-top: 15px;
+            color: #666;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #0077b6, #00b4d8, #48cae4);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100"><rect x="0" y="0" width="20" height="20" fill="white" opacity="0.2"/><rect x="20" y="0" width="20" height="20" fill="black" opacity="0.2"/><rect x="40" y="0" width="20" height="20" fill="white" opacity="0.2"/><rect x="60" y="0" width="20" height="20" fill="black" opacity="0.2"/><rect x="80" y="0" width="20" height="20" fill="white" opacity="0.2"/><rect x="100" y="0" width="20" height="20" fill="black" opacity="0.2"/><rect x="120" y="0" width="20" height="20" fill="white" opacity="0.2"/><rect x="140" y="0" width="20" height="20" fill="black" opacity="0.2"/><rect x="160" y="0" width="20" height="20" fill="white" opacity="0.2"/><rect x="180" y="0" width="20" height="20" fill="black" opacity="0.2"/><rect x="0" y="20" width="20" height="20" fill="black" opacity="0.2"/><rect x="20" y="20" width="20" height="20" fill="white" opacity="0.2"/><rect x="40" y="20" width="20" height="20" fill="black" opacity="0.2"/><rect x="60" y="20" width="20" height="20" fill="white" opacity="0.2"/><rect x="80" y="20" width="20" height="20" fill="black" opacity="0.2"/><rect x="100" y="20" width="20" height="20" fill="white" opacity="0.2"/><rect x="120" y="20" width="20" height="20" fill="black" opacity="0.2"/><rect x="140" y="20" width="20" height="20" fill="white" opacity="0.2"/><rect x="160" y="20" width="20" height="20" fill="black" opacity="0.2"/><rect x="180" y="20" width="20" height="20" fill="white" opacity="0.2"/><rect x="0" y="40" width="20" height="20" fill="white" opacity="0.2"/><rect x="20" y="40" width="20" height="20" fill="black" opacity="0.2"/><rect x="40" y="40" width="20" height="20" fill="white" opacity="0.2"/><rect x="60" y="40" width="20" height="20" fill="black" opacity="0.2"/><rect x="80" y="40" width="20" height="20" fill="white" opacity="0.2"/><rect x="100" y="40" width="20" height="20" fill="black" opacity="0.2"/><rect x="120" y="40" width="20" height="20" fill="white" opacity="0.2"/><rect x="140" y="40" width="20" height="20" fill="black" opacity="0.2"/><rect x="160" y="40" width="20" height="20" fill="white" opacity="0.2"/><rect x="180" y="40" width="20" height="20" fill="black" opacity="0.2"/><rect x="0" y="60" width="20" height="20" fill="black" opacity="0.2"/><rect x="20" y="60" width="20" height="20" fill="white" opacity="0.2"/><rect x="40" y="60" width="20" height="20" fill="black" opacity="0.2"/><rect x="60" y="60" width="20" height="20" fill="white" opacity="0.2"/><rect x="80" y="60" width="20" height="20" fill="black" opacity="0.2"/><rect x="100" y="60" width="20" height="20" fill="white" opacity="0.2"/><rect x="120" y="60" width="20" height="20" fill="black" opacity="0.2"/><rect x="140" y="60" width="20" height="20" fill="white" opacity="0.2"/><rect x="160" y="60" width="20" height="20" fill="black" opacity="0.2"/><rect x="180" y="60" width="20" height="20" fill="white" opacity="0.2"/><rect x="0" y="80" width="20" height="20" fill="white" opacity="0.2"/><rect x="20" y="80" width="20" height="20" fill="black" opacity="0.2"/><rect x="40" y="80" width="20" height="20" fill="white" opacity="0.2"/><rect x="60" y="80" width="20" height="20" fill="black" opacity="0.2"/><rect x="80" y="80" width="20" height="20" fill="white" opacity="0.2"/><rect x="100" y="80" width="20" height="20" fill="black" opacity="0.2"/><rect x="120" y="80" width="20" height="20" fill="white" opacity="0.2"/><rect x="140" y="80" width="20" height="20" fill="black" opacity="0.2"/><rect x="160" y="80" width="20" height="20" fill="white" opacity="0.2"/><rect x="180" y="80" width="20" height="20" fill="black" opacity="0.2"/></svg>');
+            z-index: 0;
+        }
+        
+        .footer-content p {
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .checkered-flag {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            font-size: 2.5rem;
+            animation: wave 3s ease-in-out infinite;
+        }
+        
+        @keyframes wave {
+            0%, 100% {
+                transform: rotate(-5deg);
+            }
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+            
+            .photo-grid,
+            .interests-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="site-title">Aarav's Awesome Space</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#photos">My Photos</a></li>
+                    <li><a href="#interests">My Interests</a></li>
+                    <li><a href="#upload">Upload</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Welcome to Aarav Medithe's World!</h1>
+            <p>This is my very own space on the internet where I can share my adventures, photos, and all the things I love!</p>
+            <div class="hero-buttons">
+                <a href="#photos" class="btn btn-primary">See My Photos</a>
+                <a href="#interests" class="btn btn-secondary">My Interests</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="photos" class="content-section">
+        <div class="container">
+            <h2 class="section-heading">My Photo Gallery</h2>
+            <div class="photo-grid">
+                <div class="photo-item">
+                    <div class="photo-placeholder">Photo 1</div>
+                    <div class="photo-info">
+                        <h3>My Adventure</h3>
+                        <p>This is from my awesome adventure last summer!</p>
+                    </div>
+                </div>
+                
+                <div class="photo-item">
+                    <div class="photo-placeholder">Photo 2</div>
+                    <div class="photo-info">
+                        <h3>Cool Science Experiment</h3>
+                        <p>Check out this amazing experiment I did!</p>
+                    </div>
+                </div>
+                
+                <div class="photo-item">
+                    <div class="photo-placeholder">Photo 3</div>
+                    <div class="photo-info">
+                        <h3>Cool Race Car Model</h3>
+                        <p>My awesome collection of race car models!</p>
+                    </div>
+                </div>
+                
+                <div class="photo-item">
+                    <div class="photo-placeholder">Photo 4</div>
+                    <div class="photo-info">
+                        <h3>Birthday Party</h3>
+                        <p>Had so much fun at my birthday party!</p>
+                    </div>
+                </div>
+                
+                <div class="photo-item">
+                    <div class="photo-placeholder">Photo 5</div>
+                    <div class="photo-info">
+                        <h3>School Project</h3>
+                        <p>My amazing school project about dinosaurs!</p>
+                    </div>
+                </div>
+                
+                <div class="photo-item">
+                    <div class="photo-placeholder">Photo 6</div>
+                    <div class="photo-info">
+                        <h3>Fun with Friends</h3>
+                        <p>Playing games with my best friends!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="interests" class="content-section" style="background-color: #e0edff;">
+        <div class="container">
+            <h2 class="section-heading">Things I Love</h2>
+            <div class="interests-list">
+                <div class="interest-card">
+                    <h3>Aston Martin Cars</h3>
+                    <p>I love Aston Martin sports cars and racing cars! They're so elegant and fast. My favorites are the DB11, Vantage, and the Valkyrie hypercar!</p>
+                </div>
+                
+                <div class="interest-card">
+                    <h3>Video Games</h3>
+                    <p>I love playing racing games like Forza, Need for Speed, and Mario Kart. I also enjoy Minecraft, Roblox, and other adventure games with my friends!</p>
+                </div>
+                
+                <div class="interest-card">
+                    <h3>Sports</h3>
+                    <p>I play soccer and basketball. Being active and playing with my team is awesome. I'm getting better every day!</p>
+                </div>
+                
+                <div class="interest-card">
+                    <h3>Science & Technology</h3>
+                    <p>I'm fascinated by how things work, especially car engines and aerodynamics. I love doing experiments and learning about cool technology!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="upload" class="content-section">
+        <div class="container">
+            <h2 class="section-heading">Upload New Photos</h2>
+            <div class="upload-section">
+                <h3>Share Your Adventures</h3>
+                <div class="file-upload">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#3a8dff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p>Click here to upload a photo or drag and drop your files</p>
+                </div>
+                <button class="btn btn-primary" style="margin-top: 20px;">Upload Photo</button>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container footer-content">
+            <p>This is my awesome personal website!</p>
+            <p>Made with ❤️ by Aarav Medithe</p>
+            <div class="social-links">
+                <a href="#">Share</a>
+                <a href="#">About Me</a>
+                <a href="#">My Friends</a>
+            </div>
+            <div class="checkered-flag">🏁</div>
+        </div>
+    </footer>
+</body>
+</html>
