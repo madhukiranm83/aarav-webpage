@@ -4,10 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aarav's Awesome Space</title>
-<style>
-/* All your styles remain the same – untouched */
-/* [omitted for brevity, but keep all your CSS here exactly as you had it] */
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header>
@@ -95,7 +92,6 @@
     <h2 class="section-heading">Things I Love</h2>
     <div class="interests-list">
       <div class="interest-card">
-        
         <h3>Koenigsegg Cars</h3>
         <p>I love Koenigsegg sports cars and racing cars! They're so elegant and fast. My favorites are the Jesko, Regera, and the Agera RS hypercar!</p>
       </div>
@@ -125,8 +121,22 @@
         <p>Select a photo to upload</p>
       </div>
       <button class="btn btn-primary" onclick="uploadImage()" style="margin-top: 20px;">Upload Photo</button>
-      <div id="preview-area" style="margin-top: 20px;">
-        <h4>Uploaded Image:</h4>
+      <progress id="uploadProgress" value="0" max="100" style="display:none; width: 100%; height: 20px; border-radius: 10px; background: #eee; appearance: none; -webkit-appearance: none;"></progress>
+<style>
+  #uploadProgress::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 10px;
+  }
+  #uploadProgress::-webkit-progress-value {
+    background: linear-gradient(90deg, #0077b6, #00b4d8);
+    border-radius: 10px;
+  }
+  #uploadProgress::-moz-progress-bar {
+    background: linear-gradient(90deg, #0077b6, #00b4d8);
+    border-radius: 10px;
+  }
+</style></progress>
+      <div id="successIcon" style="display:none; font-size: 2rem; color: green; margin-top: 10px;">✅ Upload Successful!</div>
         <img id="uploadedImage" style="max-width: 300px; display: none;" />
       </div>
     </div>
@@ -166,18 +176,35 @@
     const file = document.getElementById('fileInput').files[0];
     if (!file) return alert("Please select a file.");
 
-    const ref = storage.ref('uploads/' + file.name);
-    ref.put(file).then(snapshot => snapshot.ref.getDownloadURL())
-      .then(url => {
-        const img = document.getElementById('uploadedImage');
-        img.src = url;
-        img.style.display = 'block';
-        alert("Image uploaded successfully!");
-      })
-      .catch(err => {
-        console.error("Upload failed", err);
+    const ref = storage.ref('uploads/' + Date.now() + '-' + file.name);
+    const progressBar = document.getElementById('uploadProgress');
+    const successIcon = document.getElementById('successIcon');
+    const previewImg = document.getElementById('uploadedImage');
+
+    progressBar.style.display = 'block';
+    progressBar.value = 0;
+    successIcon.style.display = 'none';
+    previewImg.style.display = 'none';
+
+    const uploadTask = ref.put(file);
+
+    uploadTask.on('state_changed', 
+      (snapshot) => {
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        progressBar.value = progress;
+      },
+      (error) => {
+        console.error("Upload failed", error);
         alert("Upload failed! Check console for errors.");
-      });
+      },
+      () => {
+        uploadTask.snapshot.ref.getDownloadURL().then((url) => {
+          previewImg.src = url;
+          previewImg.style.display = 'block';
+          successIcon.style.display = 'block';
+        });
+      }
+    );
   }
 </script>
 </body>
