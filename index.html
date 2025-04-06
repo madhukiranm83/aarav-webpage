@@ -659,15 +659,22 @@
         <div class="container">
             <h2 class="section-heading">Upload New Photos</h2>
             <div class="upload-section">
-                <h3>Share Your Adventures</h3>
-                <div class="file-upload">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#3a8dff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="17 8 12 3 7 8"></polyline>
-                        <line x1="12" y1="3" x2="12" y2="15"></line>
-                    </svg>
-                    <p>Click here to upload a photo or drag and drop your files</p>
-                </div>
+  <h3>Share Your Adventures</h3>
+  
+  <!-- Hidden File Input -->
+  <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="uploadImage()" />
+
+  <!-- Upload Trigger Button -->
+  <button class="btn btn-primary" style="margin-top: 20px;" onclick="document.getElementById('fileInput').click();">
+    Upload Photo
+  </button>
+
+  <!-- Progress + Feedback -->
+  <progress id="uploadProgress" value="0" max="100" style="display:none; width: 100%; height: 20px; border-radius: 10px; margin-top: 20px;"></progress>
+  <div id="successIcon" style="display:none; font-size: 2rem; color: green; margin-top: 10px;">✅ Upload Successful!</div>
+  <img id="uploadedImage" style="max-width: 300px; display: none; margin-top: 10px;" />
+</div>
+
                 <button class="btn btn-primary" style="margin-top: 20px;" onclick="uploadImage()">Upload Photo</button>
             </div>
         </div>
