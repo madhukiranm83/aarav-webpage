@@ -1,71 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aarav's World</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aarav's Awesome Space</title>
+<!-- (Styles untouched for brevity) -->
 </head>
 <body>
-  <!-- Your existing page structure -->
+<header>...</header>
+<section id="home" class="hero">...</section>
+<section id="photos" class="content-section">...</section>
+<section id="interests" class="content-section">...</section>
 
-  <section class="upload-section">
-    <h2>Upload New Photos</h2>
-    <div class="upload-box">
-      <label for="fileInput" class="upload-label">
-        <div class="upload-area">
-          <img src="upload-icon.png" alt="Upload Icon" style="width: 50px;" />
-          <p>Click here to upload a photo or drag and drop your files</p>
-        </div>
-      </label>
-      <input type="file" id="fileInput" style="display: none;" />
-      <button onclick="uploadImage()">Upload Photo</button>
-
+<section id="upload" class="content-section">
+  <div class="container">
+    <h2 class="section-heading">Upload New Photos</h2>
+    <div class="upload-section">
+      <h3>Share Your Adventures</h3>
+      <div class="file-upload">
+        <input type="file" id="fileInput" />
+        <p>Select a photo to upload</p>
+      </div>
+      <button class="btn btn-primary" onclick="uploadImage()" style="margin-top: 20px;">Upload Photo</button>
       <div id="preview-area" style="margin-top: 20px;">
         <h4>Uploaded Image:</h4>
         <img id="uploadedImage" style="max-width: 300px; display: none;" />
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
+<footer>...</footer>
 
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyBeqUdMaS7lZb4NILwORlycb_6q8SHFTBc",
-      authDomain: "aarav-storage.firebaseapp.com",
-      projectId: "aarav-storage",
-      storageBucket: "aarav-storage.appspot.com",
-      messagingSenderId: "392174439731",
-      appId: "1:392174439731:web:01355b39eb9b8adbde0246"
-    };
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBeqUdMaS7lZb4NILwORlycb_6q8SHFTBc",
+    authDomain: "aarav-storage.firebaseapp.com",
+    projectId: "aarav-storage",
+    storageBucket: "aarav-storage.appspot.com",
+    messagingSenderId: "392174439731",
+    appId: "1:392174439731:web:01355b39eb9b8adbde0246"
+  };
 
-    firebase.initializeApp(firebaseConfig);
-    const storage = firebase.storage();
+  firebase.initializeApp(firebaseConfig);
+  const storage = firebase.storage();
 
-    function uploadImage() {
-      const file = document.getElementById('fileInput').files[0];
-      if (!file) {
-        alert("Please select a file first.");
-        return;
-      }
+  function uploadImage() {
+    const file = document.getElementById('fileInput').files[0];
+    if (!file) return alert("Please select a file.");
 
-      const ref = storage.ref('uploads/' + file.name);
-      ref.put(file)
-        .then(snapshot => snapshot.ref.getDownloadURL())
-        .then(url => {
-          const img = document.getElementById('uploadedImage');
-          img.src = url;
-          img.style.display = 'block';
-          alert("Image uploaded successfully!");
-        })
-        .catch(err => {
-          console.error("Upload error:", err);
-          alert("Upload failed!");
-        });
-    }
-  </script>
+    const ref = storage.ref('uploads/' + file.name);
+    ref.put(file).then(snapshot => {
+      return snapshot.ref.getDownloadURL();
+    }).then(url => {
+      const img = document.getElementById('uploadedImage');
+      img.src = url;
+      img.style.display = 'block';
+      alert("Image uploaded successfully!");
+    }).catch(err => {
+      console.error("Upload failed", err);
+      alert("Upload failed!");
+    });
+  }
+</script>
 </body>
 </html>
