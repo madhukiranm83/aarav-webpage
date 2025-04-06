@@ -739,5 +739,54 @@
     );
   }
 </script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBeqUdMaS7lZb4NILwORlycb_6q8SHFTBc",
+    authDomain: "aarav-storage.firebaseapp.com",
+    projectId: "aarav-storage",
+    storageBucket: "aarav-storage.appspot.com",
+    messagingSenderId: "392174439731",
+    appId: "1:392174439731:web:01355b39eb9b8adbde0246"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const storage = firebase.storage();
+
+  function uploadImage() {
+    const file = document.getElementById('fileInput').files[0];
+    if (!file) return alert("Please select a file.");
+
+    // ✅ Uploading to 'aarav_folder/' instead of 'uploads/'
+    const ref = storage.ref('aarav_folder/' + Date.now() + '-' + file.name);
+
+    const progressBar = document.getElementById('uploadProgress');
+    const successIcon = document.getElementById('successIcon');
+    const previewImg = document.getElementById('uploadedImage');
+
+    progressBar.style.display = 'block';
+    progressBar.value = 0;
+    successIcon.style.display = 'none';
+    previewImg.style.display = 'none';
+
+    const uploadTask = ref.put(file);
+    uploadTask.on('state_changed', 
+      (snapshot) => {
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        progressBar.value = progress;
+      },
+      (error) => {
+        console.error("Upload failed", error);
+        alert("Upload failed! Check console for errors.");
+      },
+      () => {
+        uploadTask.snapshot.ref.getDownloadURL().then((url) => {
+          previewImg.src = url;
+          previewImg.style.display = 'block';
+          successIcon.style.display = 'block';
+        });
+      }
+    );
+  }
+</script>
 
 renamed to index.html for GitHub Pages
