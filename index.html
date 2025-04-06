@@ -4,13 +4,116 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aarav's Awesome Space</title>
-<!-- (Styles untouched for brevity) -->
+<style>
+/* All your styles remain the same – untouched */
+/* [omitted for brevity, but keep all your CSS here exactly as you had it] */
+</style>
 </head>
 <body>
-<header>...</header>
-<section id="home" class="hero">...</section>
-<section id="photos" class="content-section">...</section>
-<section id="interests" class="content-section">...</section>
+<header>
+  <div class="container header-content">
+    <div class="site-title">Aarav's Awesome Space</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#photos">My Photos</a></li>
+        <li><a href="#interests">My Interests</a></li>
+        <li><a href="#upload">Upload</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section id="home" class="hero">
+  <div class="container">
+    <h1>Welcome to Aarav Medithe's World!</h1>
+    <p>This is my very own space on the internet where I can share my adventures, photos, and all the things I love!</p>
+    <div class="hero-buttons">
+      <a href="#photos" class="btn btn-primary">See My Photos</a>
+      <a href="#interests" class="btn btn-secondary">My Interests</a>
+    </div>
+  </div>
+</section>
+
+<section id="photos" class="content-section">
+  <div class="container">
+    <h2 class="section-heading">My Photo Gallery</h2>
+    <div class="photo-grid">
+      <div class="photo-item">
+        <div class="photo-placeholder">Photo 1</div>
+        <div class="photo-info">
+          <h3>My Adventure</h3>
+          <p>This is from my awesome adventure last summer!</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-placeholder">Photo 2</div>
+        <div class="photo-info">
+          <h3>Cool Science Experiment</h3>
+          <p>Check out this amazing experiment I did!</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-placeholder">Photo 3</div>
+        <div class="photo-info">
+          <h3>Cool Race Car Model</h3>
+          <p>My awesome collection of race car models!</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-placeholder">Photo 4</div>
+        <div class="photo-info">
+          <h3>Birthday Party</h3>
+          <p>Had so much fun at my birthday party!</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-placeholder">Photo 5</div>
+        <div class="photo-info">
+          <h3>School Project</h3>
+          <p>My amazing school project about dinosaurs!</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-placeholder">Photo 6</div>
+        <div class="photo-info">
+          <h3>Fun with Friends</h3>
+          <p>Playing games with my best friends!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="interests" class="content-section" style="background-color: #e0edff;">
+  <div class="container">
+    <h2 class="section-heading">Things I Love</h2>
+    <div class="interests-list">
+      <div class="interest-card">
+        
+        <h3>Koenigsegg Cars</h3>
+        <p>I love Koenigsegg sports cars and racing cars! They're so elegant and fast. My favorites are the Jesko, Regera, and the Agera RS hypercar!</p>
+      </div>
+      <div class="interest-card">
+        <h3>Video Games</h3>
+        <p>I love playing racing games like NFS racing, Need for Speed, and Mario Kart. I also enjoy Minecraft, Roblox, and other adventure games with my friends!</p>
+      </div>
+      <div class="interest-card">
+        <h3>Sports</h3>
+        <p>I play soccer and basketball. Being active and playing with my team is awesome. I'm getting better every day!</p>
+      </div>
+      <div class="interest-card">
+        <h3>Science & Technology</h3>
+        <p>I'm fascinated by how things work, especially car engines and aerodynamics. I love doing experiments and learning about cool technology!</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="upload" class="content-section">
   <div class="container">
@@ -18,7 +121,7 @@
     <div class="upload-section">
       <h3>Share Your Adventures</h3>
       <div class="file-upload">
-        <input type="file" id="fileInput" />
+        <input type="file" id="fileInput" accept="image/*" />
         <p>Select a photo to upload</p>
       </div>
       <button class="btn btn-primary" onclick="uploadImage()" style="margin-top: 20px;">Upload Photo</button>
@@ -30,9 +133,20 @@
   </div>
 </section>
 
-<footer>...</footer>
+<footer>
+  <div class="container footer-content">
+    <p>This is my awesome personal website!</p>
+    <p>Made with ❤️ by Aarav Medithe</p>
+    <div class="social-links">
+      <a href="#">Share</a>
+      <a href="#">About Me</a>
+      <a href="#">My Friends</a>
+    </div>
+    <div class="checkered-flag">🏁</div>
+  </div>
+</footer>
 
-<!-- Firebase SDKs -->
+<!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
 <script>
@@ -53,17 +167,17 @@
     if (!file) return alert("Please select a file.");
 
     const ref = storage.ref('uploads/' + file.name);
-    ref.put(file).then(snapshot => {
-      return snapshot.ref.getDownloadURL();
-    }).then(url => {
-      const img = document.getElementById('uploadedImage');
-      img.src = url;
-      img.style.display = 'block';
-      alert("Image uploaded successfully!");
-    }).catch(err => {
-      console.error("Upload failed", err);
-      alert("Upload failed!");
-    });
+    ref.put(file).then(snapshot => snapshot.ref.getDownloadURL())
+      .then(url => {
+        const img = document.getElementById('uploadedImage');
+        img.src = url;
+        img.style.display = 'block';
+        alert("Image uploaded successfully!");
+      })
+      .catch(err => {
+        console.error("Upload failed", err);
+        alert("Upload failed! Check console for errors.");
+      });
   }
 </script>
 </body>
