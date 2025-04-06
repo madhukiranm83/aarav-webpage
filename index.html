@@ -1,723 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aarav's Awesome Space</title>
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<header>
-  <div class="container header-content">
-    <div class="site-title">Aarav's Awesome Space</div>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#photos">My Photos</a></li>
-        <li><a href="#interests">My Interests</a></li>
-        <li><a href="#upload">Upload</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<section id="home" class="hero">
-  <div class="container">
-    <h1>Welcome to Aarav Medithe's World!</h1>
-    <p>This is my very own space on the internet where I can share my adventures, photos, and all the things I love!</p>
-    <div class="hero-buttons">
-      <a href="#photos" class="btn btn-primary">See My Photos</a>
-      <a href="#interests" class="btn btn-secondary">My Interests</a>
-    </div>
-  </div>
-</section>
-
-<section id="photos" class="content-section">
-  <div class="container">
-    <h2 class="section-heading">My Photo Gallery</h2>
-    <div class="photo-grid">
-      <div class="photo-item">
-        <div class="photo-placeholder">Photo 1</div>
-        <div class="photo-info">
-          <h3>My Adventure</h3>
-          <p>This is from my awesome adventure last summer!</p>
-        </div>
-      </div>
-
-      <div class="photo-item">
-        <div class="photo-placeholder">Photo 2</div>
-        <div class="photo-info">
-          <h3>Cool Science Experiment</h3>
-          <p>Check out this amazing experiment I did!</p>
-        </div>
-      </div>
-
-      <div class="photo-item">
-        <div class="photo-placeholder">Photo 3</div>
-        <div class="photo-info">
-          <h3>Cool Race Car Model</h3>
-          <p>My awesome collection of race car models!</p>
-        </div>
-      </div>
-
-      <div class="photo-item">
-        <div class="photo-placeholder">Photo 4</div>
-        <div class="photo-info">
-          <h3>Birthday Party</h3>
-          <p>Had so much fun at my birthday party!</p>
-        </div>
-      </div>
-
-      <div class="photo-item">
-        <div class="photo-placeholder">Photo 5</div>
-        <div class="photo-info">
-          <h3>School Project</h3>
-          <p>My amazing school project about dinosaurs!</p>
-        </div>
-      </div>
-
-      <div class="photo-item">
-        <div class="photo-placeholder">Photo 6</div>
-        <div class="photo-info">
-          <h3>Fun with Friends</h3>
-          <p>Playing games with my best friends!</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="interests" class="content-section" style="background-color: #e0edff;">
-  <div class="container">
-    <h2 class="section-heading">Things I Love</h2>
-    <div class="interests-list">
-      <div class="interest-card">
-        <h3>Koenigsegg Cars</h3>
-        <p>I love Koenigsegg sports cars and racing cars! They're so elegant and fast. My favorites are the Jesko, Regera, and the Agera RS hypercar!</p>
-      </div>
-      <div class="interest-card">
-        <h3>Video Games</h3>
-        <p>I love playing racing games like NFS racing, Need for Speed, and Mario Kart. I also enjoy Minecraft, Roblox, and other adventure games with my friends!</p>
-      </div>
-      <div class="interest-card">
-        <h3>Sports</h3>
-        <p>I play soccer and basketball. Being active and playing with my team is awesome. I'm getting better every day!</p>
-      </div>
-      <div class="interest-card">
-        <h3>Science & Technology</h3>
-        <p>I'm fascinated by how things work, especially car engines and aerodynamics. I love doing experiments and learning about cool technology!</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="upload" class="content-section">
-  <div class="container">
-    <h2 class="section-heading">Upload New Photos</h2>
-    <div class="upload-section">
-      <h3>Share Your Adventures</h3>
-      <div class="file-upload">
-        <input type="file" id="fileInput" accept="image/*" />
-        <p>Select a photo to upload</p>
-      </div>
-      <button class="btn btn-primary" onclick="uploadImage()" style="margin-top: 20px;">Upload Photo</button>
-      <progress id="uploadProgress" value="0" max="100" style="display:none; width: 100%; height: 20px; border-radius: 10px; background: #eee; appearance: none; -webkit-appearance: none;"></progress>
-<style>
-  #uploadProgress::-webkit-progress-bar {
-    background-color: #eee;
-    border-radius: 10px;
-  }
-  #uploadProgress::-webkit-progress-value {
-    background: linear-gradient(90deg, #0077b6, #00b4d8);
-    border-radius: 10px;
-  }
-  #uploadProgress::-moz-progress-bar {
-    background: linear-gradient(90deg, #0077b6, #00b4d8);
-    border-radius: 10px;
-  }
-</style></progress>
-      <div id="successIcon" style="display:none; font-size: 2rem; color: green; margin-top: 10px;">✅ Upload Successful!</div>
-        <img id="uploadedImage" style="max-width: 300px; display: none;" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container footer-content">
-    <p>This is my awesome personal website!</p>
-    <p>Made with ❤️ by Aarav Medithe</p>
-    <div class="social-links">
-      <a href="#">Share</a>
-      <a href="#">About Me</a>
-      <a href="#">My Friends</a>
-    </div>
-    <div class="checkered-flag">🏁</div>
-  </div>
-</footer>
-
-<!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyBeqUdMaS7lZb4NILwORlycb_6q8SHFTBc",
-    authDomain: "aarav-storage.firebaseapp.com",
-    projectId: "aarav-storage",
-    storageBucket: "aarav-storage.appspot.com",
-    messagingSenderId: "392174439731",
-    appId: "1:392174439731:web:01355b39eb9b8adbde0246"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-  const storage = firebase.storage();
-
-  function uploadImage() {
-    const file = document.getElementById('fileInput').files[0];
-    if (!file) return alert("Please select a file.");
-
-    const ref = storage.ref('uploads/' + Date.now() + '-' + file.name);
-    const progressBar = document.getElementById('uploadProgress');
-    const successIcon = document.getElementById('successIcon');
-    const previewImg = document.getElementById('uploadedImage');
-
-    progressBar.style.display = 'block';
-    progressBar.value = 0;
-    successIcon.style.display = 'none';
-    previewImg.style.display = 'none';
-
-    const uploadTask = ref.put(file);
-
-    uploadTask.on('state_changed', 
-      (snapshot) => {
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        progressBar.value = progress;
-      },
-      (error) => {
-        console.error("Upload failed", error);
-        alert("Upload failed! Check console for errors.");
-      },
-      () => {
-        uploadTask.snapshot.ref.getDownloadURL().then((url) => {
-          previewImg.src = url;
-          previewImg.style.display = 'block';
-          successIcon.style.display = 'block';
-        });
-      }
-    );
-  }
-</script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aarav's Awesome Space</title>
-<style>
-/* All your original styles (blue background, car, photo cards, interests) will be restored here */
-/* You previously shared the full stylesheet — inserting it now */
-
-/* Sample starter: */
-body {
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  background: linear-gradient(135deg, #f0f9ff 0%, #e6f3ff 50%, #d3e9ff 100%);
-  color: #333;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
-/* Header, sections, photo grid, interests, buttons, etc. */
-/* Include everything from the original file you shared */
-
-/* The SVG animation background and racecar will go inside .hero or body::before */
-/* This is just a placeholder until the full CSS is pasted */
-</style>
-</head>
-<body>
-<header>
-  <div class="container header-content">
-    <div class="site-title">Aarav's Awesome Space</div>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#photos">My Photos</a></li>
-        <li><a href="#interests">My Interests</a></li>
-        <li><a href="#upload">Upload</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<section id="home" class="hero">
-  <div class="container">
-    <h1>Welcome to Aarav Medithe's World!</h1>
-    <p>This is my very own space on the internet where I can share my adventures, photos, and all the things I love!</p>
-    <div class="hero-buttons">
-      <a href="#photos" class="btn btn-primary">See My Photos</a>
-      <a href="#interests" class="btn btn-secondary">My Interests</a>
-    </div>
-  </div>
-</section>
-
-<section id="photos" class="content-section">
-  <div class="container">
-    <h2 class="section-heading">My Photo Gallery</h2>
-    <div class="photo-grid">
-      <div class="photo-item">
-        <div class="photo-placeholder">Photo 1</div>
-        <div class="photo-info">
-          <h3>My Adventure</h3>
-          <p>This is from my awesome adventure last summer!</p>
-        </div>
-      </div>
-
-      <div class="photo-item">
-        <div class="photo-placeholder">Photo 2</div>
-        <div class="photo-info">
-          <h3>Cool Science Experiment</h3>
-          <p>Check out this amazing experiment I did!</p>
-        </div>
-      </div>
-
-      <div class="photo-item">
-        <div class="photo-placeholder">Photo 3</div>
-        <div class="photo-info">
-          <h3>Cool Race Car Model</h3>
-          <p>My awesome collection of race car models!</p>
-        </div>
-      </div>
-
-      <div class="photo-item">
-        <div class="photo-placeholder">Photo 4</div>
-        <div class="photo-info">
-          <h3>Birthday Party</h3>
-          <p>Had so much fun at my birthday party!</p>
-        </div>
-      </div>
-
-      <div class="photo-item">
-        <div class="photo-placeholder">Photo 5</div>
-        <div class="photo-info">
-          <h3>School Project</h3>
-          <p>My amazing school project about dinosaurs!</p>
-        </div>
-      </div>
-
-      <div class="photo-item">
-        <div class="photo-placeholder">Photo 6</div>
-        <div class="photo-info">
-          <h3>Fun with Friends</h3>
-          <p>Playing games with my best friends!</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="interests" class="content-section" style="background-color: #e0edff;">
-  <div class="container">
-    <h2 class="section-heading">Things I Love</h2>
-    <div class="interests-list">
-      <div class="interest-card">
-        <h3>Koenigsegg Cars</h3>
-        <p>I love Koenigsegg sports cars and racing cars! They're so elegant and fast. My favorites are the Jesko, Regera, and the Agera RS hypercar!</p>
-      </div>
-      <div class="interest-card">
-        <h3>Video Games</h3>
-        <p>I love playing racing games like NFS racing, Need for Speed, and Mario Kart. I also enjoy Minecraft, Roblox, and other adventure games with my friends!</p>
-      </div>
-      <div class="interest-card">
-        <h3>Sports</h3>
-        <p>I play soccer and basketball. Being active and playing with my team is awesome. I'm getting better every day!</p>
-      </div>
-      <div class="interest-card">
-        <h3>Science & Technology</h3>
-        <p>I'm fascinated by how things work, especially car engines and aerodynamics. I love doing experiments and learning about cool technology!</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="upload" class="content-section">
-  <div class="container">
-    <h2 class="section-heading">Upload New Photos</h2>
-    <div class="upload-section">
-      <h3>Share Your Adventures</h3>
-      <div class="file-upload">
-        <input type="file" id="fileInput" accept="image/*" />
-        <p>Select a photo to upload</p>
-      </div>
-      <button class="btn btn-primary" onclick="uploadImage()" style="margin-top: 20px;">Upload Photo</button>
-      <progress id="uploadProgress" value="0" max="100" style="display:none; width: 100%; height: 20px; border-radius: 10px; background: #eee; appearance: none; -webkit-appearance: none;"></progress>
-<style>
-  #uploadProgress::-webkit-progress-bar {
-    background-color: #eee;
-    border-radius: 10px;
-  }
-  #uploadProgress::-webkit-progress-value {
-    background: linear-gradient(90deg, #0077b6, #00b4d8);
-    border-radius: 10px;
-  }
-  #uploadProgress::-moz-progress-bar {
-    background: linear-gradient(90deg, #0077b6, #00b4d8);
-    border-radius: 10px;
-  }
-</style></progress>
-      <div id="successIcon" style="display:none; font-size: 2rem; color: green; margin-top: 10px;">✅ Upload Successful!</div>
-        <img id="uploadedImage" style="max-width: 300px; display: none;" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container footer-content">
-    <p>This is my awesome personal website!</p>
-    <p>Made with ❤️ by Aarav Medithe</p>
-    <div class="social-links">
-      <a href="#">Share</a>
-      <a href="#">About Me</a>
-      <a href="#">My Friends</a>
-    </div>
-    <div class="checkered-flag">🏁</div>
-  </div>
-</footer>
-
-<!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyBeqUdMaS7lZb4NILwORlycb_6q8SHFTBc",
-    authDomain: "aarav-storage.firebaseapp.com",
-    projectId: "aarav-storage",
-    storageBucket: "aarav-storage.appspot.com",
-    messagingSenderId: "392174439731",
-    appId: "1:392174439731:web:01355b39eb9b8adbde0246"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-  const storage = firebase.storage();
-
-  function uploadImage() {
-    const file = document.getElementById('fileInput').files[0];
-    if (!file) return alert("Please select a file.");
-
-    const ref = storage.ref('uploads/' + Date.now() + '-' + file.name);
-    const progressBar = document.getElementById('uploadProgress');
-    const successIcon = document.getElementById('successIcon');
-    const previewImg = document.getElementById('uploadedImage');
-
-    progressBar.style.display = 'block';
-    progressBar.value = 0;
-    successIcon.style.display = 'none';
-    previewImg.style.display = 'none';
-
-    const uploadTask = ref.put(file);
-
-    uploadTask.on('state_changed', 
-      (snapshot) => {
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        progressBar.value = progress;
-      },
-      (error) => {
-        console.error("Upload failed", error);
-        alert("Upload failed! Check console for errors.");
-      },
-      () => {
-        uploadTask.snapshot.ref.getDownloadURL().then((url) => {
-          previewImg.src = url;
-          previewImg.style.display = 'block';
-          successIcon.style.display = 'block';
-        });
-      }
-    );
-  }
-</script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aarav's Awesome Space</title>
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  background: linear-gradient(135deg, #f0f9ff 0%, #e6f3ff 50%, #d3e9ff 100%);
-  color: #333;
-  line-height: 1.6;
-  position: relative;
-  overflow-x: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1000" viewBox="0 0 1500 1000"><rect width="1500" height="1000" fill="transparent"/><path d="M150,750 C180,700 250,680 350,700 C390,710 430,730 470,750 L470,850 L150,850 Z" fill="%23004D40" opacity="0.2"/></svg>');
-  background-repeat: repeat-y;
-  background-size: 100% auto;
-  z-index: -1;
-  opacity: 0.25;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-header {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aarav's Awesome Space</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e6f3ff 50%, #d3e9ff 100%);
+      color: #333;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1000" viewBox="0 0 1500 1000"><rect width="1500" height="1000" fill="transparent"/><path d="M150,750 C180,700 250,680 350,700 C390,710 430,730 470,750 L470,850 L150,850 Z" fill="%23004D40" opacity="0.2"/></svg>');
+      background-repeat: repeat-y;
+      background-size: 100% auto;
+      z-index: -1;
+      opacity: 0.25;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header {
   background: linear-gradient(135deg, #0077b6, #00b4d8, #48cae4);
   padding: 20px 0;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  position: relative;
-  overflow: hidden;
-}
-
-header::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 6px;
-  background: linear-gradient(90deg, #000000, #333333, #00b4d8, #0077b6, #023e8a);
-}
-
-.header-content {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
 }
-
-.site-title {
-  font-size: 2.5rem;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-  background: linear-gradient(to right, #fff, #afe1fa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bold;
-}
-
-nav ul {
+    header .site-title {
+      font-size: 2.5rem;
+      color: white;
+      background: linear-gradient(to right, #fff, #afe1fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+    }
+    nav ul {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 10px;
   list-style: none;
 }
-
-nav ul li {
-  margin-left: 20px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  font-size: 1.2rem;
-  padding: 8px 15px;
-  border-radius: 20px;
-  transition: all 0.3s;
+    nav ul li { margin-left: 20px; }
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+      padding: 8px 15px;
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+    nav ul li a:hover {
+      transform: scale(1.05);
+      background: rgba(255,255,255,0.2);
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 0;
+      position: relative;
+      background: rgba(255,255,255,0.6);
+    }
+    .hero::after {
+      content: "🏎️";
+      position: absolute;
+      top: 20px;
+      right: 10%;
+      font-size: 3rem;
+      animation: race 8s linear infinite;
+    }
+    @keyframes race {
+      0% { transform: translateX(100%) rotate(0deg); }
+      100% { transform: translateX(-600%) rotate(0deg); }
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 30px;
+      background: #0077b6;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn:hover { background: #005f8e; }
+    .section-heading {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #3a8dff;
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .photo-item {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-  z-index: 1;
   overflow: hidden;
 }
 
-nav ul li a::before {
+.photo-item:hover {
+  transform: perspective(800px) rotateY(4deg) scale(1.05);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+
+.photo-item::before {
   content: "";
   position: absolute;
   top: 0;
-  left: -100%;
-  width: 100%;
+  left: -75%;
+  width: 50%;
   height: 100%;
-  background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.3));
-  transition: all 0.4s;
-  z-index: -1;
-  transform: skewX(-15deg);
+  background: linear-gradient(120deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.2) 100%);
+  transform: skewX(-25deg);
+  transition: left 0.5s ease;
 }
 
-nav ul li a:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.photo-item:hover::before {
+  left: 125%;
 }
-
-nav ul li a:hover::before {
-  left: 100%;
-}
-
-.hero {
-  text-align: center;
-  padding: 60px 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(240,249,255,0.8) 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::after {
-  content: "🏎️";
-  position: absolute;
-  top: 20px;
-  right: 10%;
-  font-size: 3rem;
-  animation: race 8s linear infinite;
-}
-
-@keyframes race {
-  0% { transform: translateX(100%) rotate(0deg); }
-  100% { transform: translateX(-600%) rotate(0deg); }
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  color: #3a8dff;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-}
-
-.hero p {
-  font-size: 1.3rem;
-  max-width: 800px;
-  margin: 0 auto 30px;
-  color: #555;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 30px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s;
-  font-size: 1.1rem;
-  border: none;
-  cursor: pointer;
-}
-
-.btn-primary {
-  background: linear-gradient(45deg, #0077b6, #00b4d8);
-  color: white;
-  box-shadow: 0 8px 15px rgba(0, 119, 182, 0.4);
-}
-
-.btn-secondary {
-  background: linear-gradient(45deg, #48cae4, #90e0ef);
-  color: white;
-  box-shadow: 0 8px 15px rgba(72, 202, 228, 0.4);
-}
-
-.content-section {
-  padding: 50px 0;
-}
-
-.section-heading {
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 2.2rem;
-  color: #3a8dff;
-}
-
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-  margin-bottom: 30px;
-}
-
-.photo-item {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  background-color: white;
-  transition: all 0.4s;
-  border: 4px solid white;
-}
-
-.photo-placeholder {
-  height: 180px;
-  background: linear-gradient(45deg, #48cae4, #0077b6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-.photo-info {
-  padding: 15px;
-}
-
-.interests-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 25px;
-}
-
-.interest-card {
-  background-color: white;
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  transition: all 0.4s;
-  position: relative;
-  overflow: hidden;
-}
-
-footer {
-  background: linear-gradient(135deg, #0077b6, #00b4d8, #48cae4);
-  color: white;
-  padding: 30px 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.footer-content p {
-  margin-bottom: 15px;
-  position: relative;
-  z-index: 1;
-}
-
-.social-links a {
-  color: white;
-  margin: 0 10px;
-  font-size: 1.2rem;
-  text-decoration: none;
-  position: relative;
-  z-index: 1;
-}
-
-.checkered-flag {
-  position: absolute;
-  bottom: 10px;
-  right: 20px;
-  font-size: 2.5rem;
-  animation: wave 3s ease-in-out infinite;
-}
-
-@keyframes wave {
-  0%, 100% { transform: rotate(-5deg); }
-  50% { transform: rotate(5deg); }
+    .photo-placeholder {
+      height: 180px;
+      background: linear-gradient(45deg, #48cae4, #0077b6);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .interests-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+    }
+    .interest-card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    footer {
+      background: linear-gradient(135deg, #0077b6, #00b4d8, #48cae4);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+  @media (max-width: 768px) {
+  header .site-title {
+    font-size: 1.8rem;
+  }
+  nav ul li a {
+    font-size: 1rem;
+    padding: 6px 10px;
+  }
+  .photo-placeholder {
+    font-size: 1rem;
+  }
+  .section-heading {
+    font-size: 1.5rem;
+  }
+  .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
 }
 </style>
 </head>
 <body>
-<header>
-  <div class="container header-content">
+  <header class="container header-content">
     <div class="site-title">Aarav's Awesome Space</div>
     <nav>
       <ul>
@@ -727,22 +206,17 @@ footer {
         <li><a href="#upload">Upload</a></li>
       </ul>
     </nav>
-  </div>
-</header>
+  </header>
 
-<section id="home" class="hero">
-  <div class="container">
-    <h1>Welcome to Aarav Medithe's World!</h1>
-    <p>This is my very own space on the internet where I can share my adventures, photos, and all the things I love!</p>
-    <div class="hero-buttons">
-      <a href="#photos" class="btn btn-primary">See My Photos</a>
-      <a href="#interests" class="btn btn-secondary">My Interests</a>
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>Welcome to Aarav Medithe's World!</h1>
+      <p>This is my very own space on the internet where I can share my adventures, photos, and all the things I love!</p>
+      <a href="#photos" class="btn">See My Photos</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="photos" class="content-section">
-  <div class="container">
+  <section id="photos" class="content-section container">
     <h2 class="section-heading">My Photo Gallery</h2>
     <div class="photo-grid">
       <div class="photo-item">
@@ -752,7 +226,6 @@ footer {
           <p>This is from my awesome adventure last summer!</p>
         </div>
       </div>
-
       <div class="photo-item">
         <div class="photo-placeholder">Photo 2</div>
         <div class="photo-info">
@@ -760,162 +233,89 @@ footer {
           <p>Check out this amazing experiment I did!</p>
         </div>
       </div>
-
-      <div class="photo-item">
-        <div class="photo-placeholder">Photo 3</div>
-        <div class="photo-info">
-          <h3>Cool Race Car Model</h3>
-          <p>My awesome collection of race car models!</p>
-        </div>
-      </div>
-
-      <div class="photo-item">
-        <div class="photo-placeholder">Photo 4</div>
-        <div class="photo-info">
-          <h3>Birthday Party</h3>
-          <p>Had so much fun at my birthday party!</p>
-        </div>
-      </div>
-
-      <div class="photo-item">
-        <div class="photo-placeholder">Photo 5</div>
-        <div class="photo-info">
-          <h3>School Project</h3>
-          <p>My amazing school project about dinosaurs!</p>
-        </div>
-      </div>
-
-      <div class="photo-item">
-        <div class="photo-placeholder">Photo 6</div>
-        <div class="photo-info">
-          <h3>Fun with Friends</h3>
-          <p>Playing games with my best friends!</p>
-        </div>
-      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="interests" class="content-section" style="background-color: #e0edff;">
-  <div class="container">
+  <section id="interests" class="content-section container">
     <h2 class="section-heading">Things I Love</h2>
     <div class="interests-list">
       <div class="interest-card">
         <h3>Koenigsegg Cars</h3>
-        <p>I love Koenigsegg sports cars and racing cars! They're so elegant and fast. My favorites are the Jesko, Regera, and the Agera RS hypercar!</p>
+        <p>I love Koenigsegg cars like Jesko, Regera, and Agera RS!</p>
       </div>
       <div class="interest-card">
         <h3>Video Games</h3>
-        <p>I love playing racing games like NFS racing, Need for Speed, and Mario Kart. I also enjoy Minecraft, Roblox, and other adventure games with my friends!</p>
+        <p>Need for Speed, Minecraft, Mario Kart, Roblox...</p>
       </div>
       <div class="interest-card">
-        <h3>Sports</h3>
-        <p>I play soccer and basketball. Being active and playing with my team is awesome. I'm getting better every day!</p>
-      </div>
-      <div class="interest-card">
-        <h3>Science & Technology</h3>
-        <p>I'm fascinated by how things work, especially car engines and aerodynamics. I love doing experiments and learning about cool technology!</p>
+        <h3>Science & Tech</h3>
+        <p>I enjoy car engines, robots, and building things!</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="upload" class="content-section">
-  <div class="container">
+  <section id="upload" class="content-section container">
     <h2 class="section-heading">Upload New Photos</h2>
     <div class="upload-section">
-      <h3>Share Your Adventures</h3>
-      <div class="file-upload">
-        <input type="file" id="fileInput" accept="image/*" />
-        <p>Select a photo to upload</p>
-      </div>
-      <button class="btn btn-primary" onclick="uploadImage()" style="margin-top: 20px;">Upload Photo</button>
-      <progress id="uploadProgress" value="0" max="100" style="display:none; width: 100%; height: 20px; border-radius: 10px; background: #eee; appearance: none; -webkit-appearance: none;"></progress>
-<style>
-  #uploadProgress::-webkit-progress-bar {
-    background-color: #eee;
-    border-radius: 10px;
-  }
-  #uploadProgress::-webkit-progress-value {
-    background: linear-gradient(90deg, #0077b6, #00b4d8);
-    border-radius: 10px;
-  }
-  #uploadProgress::-moz-progress-bar {
-    background: linear-gradient(90deg, #0077b6, #00b4d8);
-    border-radius: 10px;
-  }
-</style></progress>
+      <input type="file" id="fileInput" accept="image/*" />
+      <button class="btn" onclick="uploadImage()">Upload</button>
+      <progress id="uploadProgress" value="0" max="100" style="display:none; width: 100%; height: 20px; border-radius: 10px;"></progress>
       <div id="successIcon" style="display:none; font-size: 2rem; color: green; margin-top: 10px;">✅ Upload Successful!</div>
-        <img id="uploadedImage" style="max-width: 300px; display: none;" />
-      </div>
+      <img id="uploadedImage" style="max-width: 300px; display: none; margin-top: 10px;" />
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <div class="container footer-content">
-    <p>This is my awesome personal website!</p>
+  <footer>
     <p>Made with ❤️ by Aarav Medithe</p>
-    <div class="social-links">
-      <a href="#">Share</a>
-      <a href="#">About Me</a>
-      <a href="#">My Friends</a>
-    </div>
-    <div class="checkered-flag">🏁</div>
-  </div>
-</footer>
+  </footer>
 
-<!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyBeqUdMaS7lZb4NILwORlycb_6q8SHFTBc",
-    authDomain: "aarav-storage.firebaseapp.com",
-    projectId: "aarav-storage",
-    storageBucket: "aarav-storage.appspot.com",
-    messagingSenderId: "392174439731",
-    appId: "1:392174439731:web:01355b39eb9b8adbde0246"
-  };
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBeqUdMaS7lZb4NILwORlycb_6q8SHFTBc",
+      authDomain: "aarav-storage.firebaseapp.com",
+      projectId: "aarav-storage",
+      storageBucket: "aarav-storage.appspot.com",
+      messagingSenderId: "392174439731",
+      appId: "1:392174439731:web:01355b39eb9b8adbde0246"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const storage = firebase.storage();
 
-  firebase.initializeApp(firebaseConfig);
-  const storage = firebase.storage();
+    function uploadImage() {
+      const file = document.getElementById('fileInput').files[0];
+      if (!file) return alert("Please select a file.");
 
-  function uploadImage() {
-    const file = document.getElementById('fileInput').files[0];
-    if (!file) return alert("Please select a file.");
+      const ref = storage.ref('uploads/' + Date.now() + '-' + file.name);
+      const progressBar = document.getElementById('uploadProgress');
+      const successIcon = document.getElementById('successIcon');
+      const previewImg = document.getElementById('uploadedImage');
 
-    const ref = storage.ref('uploads/' + Date.now() + '-' + file.name);
-    const progressBar = document.getElementById('uploadProgress');
-    const successIcon = document.getElementById('successIcon');
-    const previewImg = document.getElementById('uploadedImage');
+      progressBar.style.display = 'block';
+      progressBar.value = 0;
+      successIcon.style.display = 'none';
+      previewImg.style.display = 'none';
 
-    progressBar.style.display = 'block';
-    progressBar.value = 0;
-    successIcon.style.display = 'none';
-    previewImg.style.display = 'none';
-
-    const uploadTask = ref.put(file);
-
-    uploadTask.on('state_changed', 
-      (snapshot) => {
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        progressBar.value = progress;
-      },
-      (error) => {
-        console.error("Upload failed", error);
-        alert("Upload failed! Check console for errors.");
-      },
-      () => {
-        uploadTask.snapshot.ref.getDownloadURL().then((url) => {
-          previewImg.src = url;
-          previewImg.style.display = 'block';
-          successIcon.style.display = 'block';
-        });
-      }
-    );
-  }
-</script>
+      const uploadTask = ref.put(file);
+      uploadTask.on('state_changed', 
+        (snapshot) => {
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          progressBar.value = progress;
+        },
+        (error) => {
+          console.error("Upload failed", error);
+          alert("Upload failed! Check console for errors.");
+        },
+        () => {
+          uploadTask.snapshot.ref.getDownloadURL().then((url) => {
+            previewImg.src = url;
+            previewImg.style.display = 'block';
+            successIcon.style.display = 'block';
+          });
+        }
+      );
+    }
+  </script>
 </body>
 </html>
-
